@@ -1,3 +1,3 @@
-nltk==3.2
+nltk==3.2.1
 python-docx==0.8.5
-PyNLPl==0.8.0
+PyNLPl==0.8.2
