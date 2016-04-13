@@ -13,6 +13,7 @@
     <class xml:id="DETWH" label="interrogative determiner"/>
     <class xml:id="ET" label="foreign word"/>
     <class xml:id="I" label="interjection"/>
+    <class xml:id="N" label="noun"/>
     <class xml:id="NC" label="common noun"/>
     <class xml:id="NPP" label="proper noun"/>
     <class xml:id="P" label="preposition"/>
