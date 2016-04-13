@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <set xml:id="corrections" type="closed" xmlns="http://ilk.uvt.nl/folia">
     <class xml:id="ACC" label="ACCORD">
-        <class xml:id="ACC.genre" label="Genre" />
-        <class xml:id="ACC.nombre" label="Nombre" />
-        <class xml:id="ACC.personne" label="Personne" />
+        <class xml:id="ACC.genre" label="ACCORD: Genre" />
+        <class xml:id="ACC.nombre" label="ACCORD: Nombre" />
+        <class xml:id="ACC.personne" label="ACCORD: Personne" />
     </class>
     <class xml:id="CHO" label="CHOIX">
-        <class xml:id="CHO.mot" label="Mot" />
-        <class xml:id="CHO.temps" label="Temps" />
-        <class xml:id="CHO.mode" label="Mode" />
-        <class xml:id="CHO.auxiliaire" label="Auxiliaire" />
-        <class xml:id="CHO.indéfini" label="Indéfini/défini" />
+        <class xml:id="CHO.mot" label="CHOIX: Mot" />
+        <class xml:id="CHO.temps" label="CHOIX: Temps" />
+        <class xml:id="CHO.mode" label="CHOIX: Mode" />
+        <class xml:id="CHO.auxiliaire" label="CHOIX: Auxiliaire" />
+        <class xml:id="CHO.indéfini" label="CHOIX: Indéfini/défini" />
     </class>
     <class xml:id="DEC" label="DÉCLINAISON">
-        <class xml:id="DEC.nom" label="Nom" />
-        <class xml:id="DEC.verbe" label="Verbe" />
+        <class xml:id="DEC.nom" label="DÉCLINAISON: Nom" />
+        <class xml:id="DEC.verbe" label="DÉCLINAISON: Verbe" />
     </class>
     <class xml:id="OMI" label="OMISSION">
-        <class xml:id="OMI.article" label="Article" />
-        <class xml:id="OMI.négation" label="Négation" />
-        <class xml:id="OMI.préposition" label="Préposition" />
-        <class xml:id="OMI.pronom" label="Pronom" />
-        <class xml:id="OMI.autre" label="Autre" />
+        <class xml:id="OMI.article" label="OMISSION: Article" />
+        <class xml:id="OMI.négation" label="OMISSION: Négation" />
+        <class xml:id="OMI.préposition" label="OMISSION: Préposition" />
+        <class xml:id="OMI.pronom" label="OMISSION: Pronom" />
+        <class xml:id="OMI.autre" label="OMISSION: Autre" />
     </class>
     <class xml:id="ORD" label="ORDRE DES MOTS" />
     <class xml:id="SUR" label="SURGÉNÉRATION" />
     <class xml:id="VAR" label="VARIA">
-        <class xml:id="VAR.style" label="Style/Registre" />
-        <class xml:id="VAR.frappe" label="Faute de frappe" />
-        <class xml:id="VAR.orthographe" label="Erreur d'orthographe" />
-        <class xml:id="VAR.négation" label="Altération du/des/de après négation" />
-        <class xml:id="VAR.ces" label="Ces/c'est" />
+        <class xml:id="VAR.style" label="VARIA: Style/Registre" />
+        <class xml:id="VAR.frappe" label="VARIA: Faute de frappe" />
+        <class xml:id="VAR.orthographe" label="VARIA: Erreur d'orthographe" />
+        <class xml:id="VAR.négation" label="VARIA: Altération du/des/de après négation" />
+        <class xml:id="VAR.ces" label="VARIA: Ces/c'est" />
     </class>
     <class xml:id="AUT" label="AUTRES" />
     <class xml:id="NEE" label="NÉERLANDICISME" />
