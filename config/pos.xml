@@ -18,7 +18,7 @@
     <class xml:id="P" label="preposition"/>
     <class xml:id="P+D" label="preposition+determiner amalgam"/>
     <class xml:id="P+PRO" label="prepositon+pronoun amalgam"/>
-    <class xml:id="PONCT" label="punctuation mark"/>
+    <class xml:id="PUNC" label="punctuation mark"/>
     <class xml:id="PREF" label="prefix"/>
     <class xml:id="PRO" label="full pronoun"/>
     <class xml:id="PROREL" label="relative pronoun"/>
