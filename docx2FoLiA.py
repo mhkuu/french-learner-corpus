@@ -26,7 +26,8 @@ def process_folder(directory):
 def create_xml(filename, raw):
     # start the XML
     doc = folia.Document(id=filename)
-    # doc.declare(folia.PosAnnotation, 'brown-tag-set')
+    doc.declare(folia.Correction, 'test', annotatortype=folia.AnnotatorType.MANUAL)
+    doc.declare(folia.PosAnnotation, 'brown-tag-set', annotator='Stanford POS Tagger', annotatortype=folia.AnnotatorType.AUTO)
     text = doc.append(folia.Text)
 
     for paragraph in raw.splitlines():

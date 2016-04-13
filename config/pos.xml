@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set xml:id="cc-tagset" type="closed" xmlns="http://ilk.uvt.nl/folia">
+    <class xml:id="ADJ" label="adjective"/>
+    <class xml:id="ADJWH" label="interrogative adjective"/>
+    <class xml:id="ADV" label="adverb"/>
+    <class xml:id="ADVWH" label="interrogative adverb"/>
+    <class xml:id="CC" label="coordination conjunction"/>
+    <class xml:id="CLO" label="object clitic pronoun"/>
+    <class xml:id="CLR" label="reflexive clitic pronoun"/>
+    <class xml:id="CLS" label="subject clitic pronoun"/>
+    <class xml:id="CS" label="subordination conjunction"/>
+    <class xml:id="DET" label="determiner"/>
+    <class xml:id="DETWH" label="interrogative determiner"/>
+    <class xml:id="ET" label="foreign word"/>
+    <class xml:id="I" label="interjection"/>
+    <class xml:id="NC" label="common noun"/>
+    <class xml:id="NPP" label="proper noun"/>
+    <class xml:id="P" label="preposition"/>
+    <class xml:id="P+D" label="preposition+determiner amalgam"/>
+    <class xml:id="P+PRO" label="prepositon+pronoun amalgam"/>
+    <class xml:id="PONCT" label="punctuation mark"/>
+    <class xml:id="PREF" label="prefix"/>
+    <class xml:id="PRO" label="full pronoun"/>
+    <class xml:id="PROREL" label="relative pronoun"/>
+    <class xml:id="PROWH" label="interrogative pronoun"/>
+    <class xml:id="V" label="indicative or conditional verb form"/>
+    <class xml:id="VIMP" label="imperative verb form"/>
+    <class xml:id="VINF" label="infinitive verb form"/>
+    <class xml:id="VPP" label="past participle"/>
+    <class xml:id="VPR" label="present participle"/>
+    <class xml:id="VS" label="subjunctive verb form"/>
+</set>

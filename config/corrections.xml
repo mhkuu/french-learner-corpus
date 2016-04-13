@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set xml:id="corrections" type="closed" xmlns="http://ilk.uvt.nl/folia">
+    <class xml:id="ACC" label="ACCORD">
+        <class xml:id="ACC.genre" label="Genre" />
+        <class xml:id="ACC.nombre" label="Nombre" />
+        <class xml:id="ACC.personne" label="Personne" />
+    </class>
+    <class xml:id="CHO" label="CHOIX">
+        <class xml:id="CHO.mot" label="Mot" />
+        <class xml:id="CHO.temps" label="Temps" />
+        <class xml:id="CHO.mode" label="Mode" />
+        <class xml:id="CHO.auxiliaire" label="Auxiliaire" />
+        <class xml:id="CHO.indéfini" label="Indéfini/défini" />
+    </class>
+    <class xml:id="DEC" label="DÉCLINAISON">
+        <class xml:id="DEC.nom" label="Nom" />
+        <class xml:id="DEC.verbe" label="Verbe" />
+    </class>
+    <class xml:id="OMI" label="OMISSION">
+        <class xml:id="OMI.article" label="Article" />
+        <class xml:id="OMI.négation" label="Négation" />
+        <class xml:id="OMI.préposition" label="Préposition" />
+        <class xml:id="OMI.pronom" label="Pronom" />
+        <class xml:id="OMI.autre" label="Autre" />
+    </class>
+    <class xml:id="ORD" label="ORDRE DES MOTS" />
+    <class xml:id="SUR" label="SURGÉNÉRATION" />
+    <class xml:id="VAR" label="VARIA">
+        <class xml:id="VAR.style" label="Style/Registre" />
+        <class xml:id="VAR.frappe" label="Faute de frappe" />
+        <class xml:id="VAR.orthographe" label="Erreur d'orthographe" />
+        <class xml:id="VAR.négation" label="Altération du/des/de après négation" />
+        <class xml:id="VAR.ces" label="Ces/c'est" />
+    </class>
+    <class xml:id="AUT" label="AUTRES" />
+    <class xml:id="NEE" label="NÉERLANDICISME" />
+    <class xml:id="ANG" label="ANGLICISME" />
+</set>
