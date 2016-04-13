@@ -1,0 +1,55 @@
+<TEI>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>$title</title>
+        <editor/>
+        <respStmt>
+          <name/>
+          <resp>Transcriber</resp>
+        </respStmt>
+        <principal>Bert Le Bruyn</principal>
+        <author/>
+      </titleStmt>
+      <editionStmt>
+        <edition>
+          <title>UiL-OTS LCF 1.0</title>
+          <date>$year</date>
+        </edition>
+        <respStmt>
+          <resp>Conversion to TEI</resp>
+          <name>Martijn van der Klis</name>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <idno>$title</idno>
+        <distributor>UiL-OTS, Universiteit Utrecht</distributor>
+        <authority>LCF Project</authority>
+        <address>
+          <addName>http://uilots-labs.wp.hum.uu.nl/</addName>
+        </address>
+      </publicationStmt>
+      <notesStmt>
+        <note>$title</note>
+      </notesStmt>
+      <sourceDesc>
+        <bibl>LCF Project</bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <creation>
+        <date>$date</date>
+      </creation>
+      <langUsage>
+        <language ident="FR">FR</language>
+      </langUsage>
+      <textClass>
+        <catRef target="#INST.C2 #YEAR.BA1 #TTYPE.LE #TASK.C2.BA1.01"/>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    $sub
+  </text>
+</TEI>
+
