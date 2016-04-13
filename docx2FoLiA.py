@@ -7,6 +7,9 @@ from pynlpl.formats import folia
 
 from utils import docx_to_raw, SENTENCE_SPLITTER, STANFORD_TAGGER
 
+CORRECTION_TAGSET = 'https://raw.githubusercontent.com/mhkuu/french-learner-corpus/master/config/corrections.xml'
+POS_TAGSET = 'https://raw.githubusercontent.com/mhkuu/french-learner-corpus/master/config/pos.xml'
+
 
 def process_folder(directory):
     for filename in glob.glob(os.path.join(directory, '*.docx')):
@@ -24,12 +27,18 @@ def process_folder(directory):
 
 
 def create_xml(filename, raw):
-    # start the XML
+    # Start the XML and declare the tagsets
     doc = folia.Document(id=filename)
-    doc.declare(folia.Correction, 'test', annotatortype=folia.AnnotatorType.MANUAL)
-    doc.declare(folia.PosAnnotation, 'brown-tag-set', annotator='Stanford POS Tagger', annotatortype=folia.AnnotatorType.AUTO)
-    text = doc.append(folia.Text)
+    doc.declare(folia.Correction,
+                CORRECTION_TAGSET,
+                annotatortype=folia.AnnotatorType.MANUAL)
+    doc.declare(folia.PosAnnotation,
+                POS_TAGSET,
+                annotator='Stanford POS Tagger',
+                annotatortype=folia.AnnotatorType.AUTO)
 
+    # Add the text
+    text = doc.append(folia.Text)
     for paragraph in raw.splitlines():
         par = paragraph.strip()
         if par:  # skip empty paragraphs
