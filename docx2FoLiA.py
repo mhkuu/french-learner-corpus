@@ -23,13 +23,13 @@ def process_folder(directory):
         raw = raw.replace(u"’", u"'")
 
         # Create the XML output
-        create_xml(os.path.splitext(os.path.basename(filename))[0] + '-new', raw)
+        create_xml(os.path.splitext(os.path.basename(filename))[0] + '-final', raw)
 
 
 def create_xml(filename, raw):
     # Start the XML and declare the tagsets
     doc = folia.Document(id=filename)
-    doc.declare(folia.Entity,
+    doc.declare(folia.Correction,
                 CORRECTION_TAGSET,
                 annotatortype=folia.AnnotatorType.MANUAL)
     doc.declare(folia.SyntacticUnit,
