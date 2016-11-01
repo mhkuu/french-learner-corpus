@@ -5,7 +5,7 @@ import os
 
 from pynlpl.formats import folia
 
-from utils import docx_to_raw, SENTENCE_SPLITTER, STANFORD_TAGGER
+from utils import docx_to_raw, create_sentences
 
 CORRECTION_TAGSET = 'https://raw.githubusercontent.com/mhkuu/french-learner-corpus/master/config/corrections.xml'
 POS_TAGSET = 'https://raw.githubusercontent.com/mhkuu/french-learner-corpus/master/config/pos.xml'
@@ -47,17 +47,10 @@ def create_xml(filename, raw):
         if par:  # skip empty paragraphs
             p = text.add(folia.Paragraph)
 
-            # Split paragraphs into sentences using the PunktTokenizer
-            for sentence in SENTENCE_SPLITTER.tokenize(par):
-                s = p.append(folia.Sentence)
-
-                # Tokenize and tag sentences using the Stanford POS tagger
-                tagged_words = STANFORD_TAGGER.tag([sentence])
-                for word, tag in tagged_words:
-                    w = s.append(folia.Word, word)
-                    w.add(folia.PosAnnotation, cls=tag)
+            create_sentences(p, par)
 
     doc.save('out/{}.xml'.format(filename))
+
 
 if __name__ == '__main__':
     for subdir, _, _ in os.walk('in'):

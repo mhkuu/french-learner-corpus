@@ -3,10 +3,10 @@
 import glob
 import os
 
-from bs4 import BeautifulSoup, element
+from bs4 import BeautifulSoup
 from pynlpl.formats import folia
 
-# from utils import SENTENCE_SPLITTER, STANFORD_TAGGER
+from utils import create_sentences
 
 CORRECTION_TAGSET = 'https://raw.githubusercontent.com/mhkuu/french-learner-corpus/master/config/corrections.xml'
 POS_TAGSET = 'https://raw.githubusercontent.com/mhkuu/french-learner-corpus/master/config/pos.xml'
@@ -39,22 +39,31 @@ def create_xml(filename, soup):
                 annotator='Stanford POS Tagger',
                 annotatortype=folia.AnnotatorType.AUTO)
 
-    # Add the text
     text = doc.append(folia.Text)
+
+    # Add the metadata
+    for metadata in soup.find_all('global'):
+        for key, value in metadata.attrs.items():
+            text.add(folia.Feature, subset=key, cls=value)
+
+    # Add the text
     for paragraph in soup.find_all('paragraph'):
         p = text.add(folia.Paragraph)
 
         # Split paragraphs into sentences
         for sentence in paragraph.find_all('sp'):
-            s = p.append(folia.Sentence)
+            # Fetch the contents
+            try:
+                contents = ' '.join(sentence.contents)
+            except TypeError:
+                print sentence.contents
 
-            # Tokenize and tag sentences using the Stanford POS tagger
-            contents = ' '.join(sentence.contents)
+            # Create the FoLiA sentences
+            sentences = create_sentences(p, contents)
 
-            #tagged_words = STANFORD_TAGGER.tag([sentence])
-            for word in contents.split():
-                w = s.append(folia.Word, word)
-            #    w.add(folia.PosAnnotation, cls=tag)
+            # Add speaker data
+            for s in sentences:
+                s.add(folia.Feature, subset='speaker', cls=sentence['who'])
 
     doc.save('out/{}.xml'.format(filename))
 
