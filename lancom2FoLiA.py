@@ -21,8 +21,12 @@ def process_folder(directory):
         print filename
 
         soup = BeautifulSoup(open(filename), 'html.parser')
-        [x.extract() for x in soup.find_all(['voc', 'mor', 'synt', 'pht', 'ph_pause', 'unclear'])]
+
+        # Remove/unwrap unwanted tags
         [x.decompose() for x in soup.find_all(['int'])]
+        [x.unwrap() for x in soup.find_all(['voc', 'mor', 'synt', 'pht', 'ph_pause', 'unclear', 'prag'])]
+
+        # Rename the global tags with a sequence attribute
         for x in soup.find_all('global'):
             if x.has_attr('sequence'):
                 x.name = 'paragraph'
