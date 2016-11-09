@@ -20,19 +20,19 @@ def process_folder(directory):
     for filename in glob.glob(os.path.join(directory, '*.txt')):
         print filename
 
-        soup = BeautifulSoup(open(filename), 'html.parser')
+        with open(filename, 'r') as f:
+            contents = f.read()
+            # Rename the global tags with a sequence attribute
+            contents = contents.replace('<global sequence', '</paragraph><paragraph sequence')
 
-        # Remove/unwrap unwanted tags
-        [x.decompose() for x in soup.find_all(['int'])]
-        [x.unwrap() for x in soup.find_all(['voc', 'mor', 'synt', 'pht', 'ph_pause', 'unclear', 'prag'])]
+            soup = BeautifulSoup(contents, 'html.parser')
 
-        # Rename the global tags with a sequence attribute
-        for x in soup.find_all('global'):
-            if x.has_attr('sequence'):
-                x.name = 'paragraph'
+            # Remove/unwrap unwanted tags
+            [x.decompose() for x in soup.find_all(['int'])]
+            [x.unwrap() for x in soup.find_all(['voc', 'mor', 'synt', 'pht', 'ph_pause', 'unclear', 'prag', 'into', 'ii'])]
 
-        # Create the XML output
-        create_xml(get_basename(filename), soup)
+            # Create the XML output
+            create_xml(get_basename(filename), soup)
 
 
 def create_xml(filename, soup):
@@ -63,7 +63,7 @@ def create_xml(filename, soup):
                 print sentence.contents
 
             # Create the FoLiA sentences
-            sentences = create_sentences(p, contents)
+            sentences = create_sentences(p, contents, 'stanford')
 
             # Add speaker data
             for s in sentences:

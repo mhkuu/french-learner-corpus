@@ -4,6 +4,8 @@ from nltk.data import load
 from nltk.tag import StanfordPOSTagger
 from nltk.tokenize import StanfordTokenizer
 
+from pattern.fr import parse, lemma
+
 from pynlpl.formats import folia
 
 from docx import Document
@@ -43,18 +45,27 @@ def docx_to_raw(filename):
     return '\n'.join(text)
 
 
-def create_sentences(paragraph, text):
+def create_sentences(paragraph, text, tagger='stanford'):
     sentences = []
 
     # Split paragraphs into sentences using the PunktTokenizer
     for sentence in SENTENCE_SPLITTER.tokenize(text):
         s = paragraph.add(folia.Sentence)
 
-        # Tokenize and tag sentences using the Stanford POS tagger
-        tagged_words = STANFORD_TAGGER.tag([sentence])
+        # Tokenize and tag sentences using the Stanford POS tagger or Pattern's tagger
+        if tagger == 'stanford':
+            tagged_words = STANFORD_TAGGER.tag([sentence])
+        elif tagger == 'pattern':
+            tagged_words = parse(sentence, chunks=False).split()
+            tagged_words = sum(tagged_words, [])
+        else:
+            raise ValueError('Unknown tagger')
+
         for word, tag in tagged_words:
             w = s.add(folia.Word, word)
             w.add(folia.PosAnnotation, cls=tag)
+            if tagger == 'pattern':
+                w.add(folia.LemmaAnnotation, cls=lemma(word))
 
         sentences.append(s)
 
