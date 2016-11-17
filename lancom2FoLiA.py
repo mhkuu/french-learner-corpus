@@ -23,13 +23,13 @@ def process_folder(directory):
         with open(filename, 'r') as f:
             contents = f.read()
             # Rename the global tags with a sequence attribute
-            contents = contents.replace('<global sequence', '</paragraph><paragraph sequence')
+            contents = contents.replace('<global sequence=', '</paragraph><paragraph sequence=')
 
             soup = BeautifulSoup(contents, 'html.parser')
 
             # Remove/unwrap unwanted tags
-            [x.decompose() for x in soup.find_all(['int'])]
-            [x.unwrap() for x in soup.find_all(['voc', 'mor', 'synt', 'pht', 'ph_pause', 'unclear', 'prag', 'into', 'ii'])]
+            [x.decompose() for x in soup.find_all(['int', 'contour_fall', 'contour_rise'])]
+            [x.unwrap() for x in soup.find_all(['voc', 'mor', 'synt', 'pht', 'ph_pause', 'ph_long', 'unclear', 'prag', 'into', 'ii'])]
 
             # Create the XML output
             create_xml(get_basename(filename), soup)
